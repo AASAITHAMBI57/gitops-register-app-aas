@@ -12,7 +12,7 @@ pipeline{
         }
         stage('Checkout from SCM'){
             steps{
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'GitPass', url: 'https://github.com/AASAITHAMBI57/gitops-register-app-aas.git']])
+                git credentialsId: 'GitPass', url: 'https://github.com/AASAITHAMBI57/gitops-register-app-aas.git'
             }
         }
         stage("Update the Deployment Tags") {
