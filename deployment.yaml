@@ -1,23 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: register-app-deployment
+  name: red-app-deploy
+  labels:
+    app: red-app
 spec:
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels:
-      app: register-app
+      app: red-app
   template:
     metadata:
       labels:
-        app: register-app
+        app: red-app
     spec:
       containers:
-        - name: register-app
-          image: ashfaque9x/register-app-pipeline:1.0.0-9
-          resources:
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
-          ports:
-            - containerPort: 8080
+      - name: red-app-cont1
+        image: aasaithambi5/red-app-pipeline:1.0.0-22
+        ports:
+        - containerPort: 8080
